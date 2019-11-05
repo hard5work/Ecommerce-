@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group
+        android:checkableBehavior="single"
+        >
+        <item
+            android:id="@+id/dmenwear"
+            android:icon="@android:drawable/ic_input_add"
+            android:title="@string/dmen" />
+        <item
+            android:id="@+id/dwmenwear"
+            android:icon="@android:drawable/ic_input_add"
+            android:title="@string/dwomen" />
+        <item
+            android:id="@+id/dkidwear"
+            android:icon="@android:drawable/ic_input_add"
+            android:title="@string/dkid" />
+        <item
+            android:id="@+id/dcategory"
+            android:icon="@android:drawable/ic_input_add"
+            android:title="@string/category"/>
+        <item
+            android:title="@string/fav"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:id="@+id/dfav"
+            />
+        <item
+            android:title="@string/MyPro"
+            android:icon="@android:drawable/ic_input_add"
+            android:id="@+id/myProduct"/>
+    </group>
+    <item android:title="@string/comm">
+    <menu>
+
+    <item
+        android:id="@+id/dexitApp"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/close" />
+    <item
+        android:id="@+id/dsignOut"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/signout" />
+    </menu>
+    </item>
+
+
+</menu>

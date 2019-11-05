@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    package="com.example.anis.ecommerce">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".category_stuff.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".image_view.MenNewSee"
+            android:label="@string/newg"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".image_view.FullImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cart_list.CartActivity"
+            android:label="@string/cart"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".login_stuff.LoginActivty"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".login_stuff.SignupActivity"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".image_view.CategoryActivity"
+            android:label="Category"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".category_stuff.MensWearActivity"
+            android:label="Men&apos;s Category"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".image_view.FavoritesProduct"
+            android:label="@string/fitems"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".image_view.SplashScreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".category_stuff.MenCategoryClass"
+            android:label="Men&apos;s Wear"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".userprofile.UserProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".category_stuff.WomenCategoryClass"
+            android:label="Women&apos;s Wear"
+            android:screenOrientation="portrait" />
+        <activity android:name=".category_stuff.KidCategoryClass" />
+        <activity android:name=".login_stuff.EmailVerification" />
+        <activity android:name=".login_stuff.PasswordChange" />
+        <activity android:name=".cart_list.CheckoutActivity" />
+        <activity android:name=".adminpanel.UploadMultipleImage" />
+
+        <service
+            android:name=".services.MyService"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".adminpanel.AddProduct" />
+        <activity
+            android:name=".adminpanel.AdminDashboard"
+            android:label="@string/title_activity_admin_dashboard" />
+        <activity
+            android:name=".adminpanel.AddProductColor"
+            android:label="@string/title_activity_add_product_color"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".adminpanel.AddProductSize"
+            android:label="@string/title_activity_add_product_size"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".adminpanel.AddProdImage"
+            android:label="@string/title_activity_add_prod_image"
+            android:theme="@style/AppTheme"></activity>
+    </application>
+
+</manifest>

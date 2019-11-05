@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "57041906667",
+    "firebase_url": "https://ecommerce-eabd2.firebaseio.com",
+    "project_id": "ecommerce-eabd2",
+    "storage_bucket": "ecommerce-eabd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57041906667:android:b98f7b9264da79e8",
+        "android_client_info": {
+          "package_name": "com.example.anis.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "57041906667-un16km650i9tvlhsh91o6l4k491e13lq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdNL55SNtwlMY7khijEiFBYtSO8w-7wXA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

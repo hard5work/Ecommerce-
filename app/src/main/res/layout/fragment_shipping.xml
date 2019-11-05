@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
+
+    <TextView
+        android:id="@+id/contactDetail"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/contactDetail"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp" />
+
+    <EditText
+        android:inputType="text"
+        android:id="@+id/contactFullName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/contactDetail"
+        android:layout_margin="2dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/fullname"
+        android:padding="5dp" />
+
+    <EditText
+        android:inputType="textEmailAddress"
+        android:id="@+id/contactEmail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/contactFullName"
+        android:layout_margin="2dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/enterEmail"
+        android:padding="5dp" />
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/contactPhn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/contactEmail"
+        android:layout_margin="2dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/enterContact"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_below="@id/contactPhn"
+        android:id="@+id/shippinAdd"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/shippingadd"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp" />
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/shippingWard"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/shippinAdd"
+        android:layout_margin="2dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/wardno"
+        android:padding="5dp" />
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/shippingState"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/shippingWard"
+        android:layout_toEndOf="@+id/shippingWard"
+        android:layout_below="@id/shippinAdd"
+        android:layout_margin="2dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/enterState"
+        android:padding="5dp" />
+
+    <EditText
+        android:inputType="text"
+        android:id="@+id/shippingDistrict"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/shippingState"
+        android:layout_margin="2dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/enterDistrict"
+        android:padding="5dp" />
+    <EditText
+        android:inputType="text"
+        android:id="@+id/shippingStreet"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/shippingDistrict"
+        android:layout_margin="2dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/enterStreet"
+        android:padding="5dp" />
+    <EditText
+        android:inputType="text"
+        android:id="@+id/shippingStreetno"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/shippingStreet"
+        android:layout_margin="2dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/enterStreetno"
+        android:padding="5dp" />
+</RelativeLayout>
+</FrameLayout>

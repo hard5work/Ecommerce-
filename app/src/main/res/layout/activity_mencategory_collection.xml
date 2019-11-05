@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    app:layout_collapseMode="pin"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include
+
+        android:textColor="@color/white"
+        android:id="@+id/toolbarLayou"
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        />
+
+
+    <android.support.design.widget.TabLayout
+        android:animateLayoutChanges="true"
+        android:background="@color/colorPrimary"
+        android:id="@+id/tab_layout_men"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:textAlignment="gravity"
+        app:tabTextColor="#404040"
+        app:tabIndicatorColor="@color/white"
+        app:tabSelectedTextColor="@color/white"
+        android:textColor="#900090"
+        android:textSize="20sp"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_men"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

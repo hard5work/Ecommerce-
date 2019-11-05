@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="checkout_steps_view_height">20dp</dimen>
+    <dimen name="checkout_steps_view_margin_top">20dp</dimen>
+    <dimen name="checkout_steps_view_margin_bottom">20dp</dimen>
+    <dimen name="checkout_steps_view_minwidth">10dp</dimen>
+    <dimen name="checkout_progressbar_width">20dp</dimen>
+    <dimen name="checkout_progressbar_height">20dp</dimen>
+    <dimen name="checkout_steps_side_margin">20dp</dimen>
+    <dimen name="checkout_step_small_node_size">20dp</dimen>
+    <dimen name="checkout_step_small_node_font_size">20dp</dimen>
+    <dimen name="checkout_step_name_width">20dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

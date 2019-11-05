@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/adminRelative"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <GridView
+                android:numColumns="3"
+                android:id="@+id/gridViewAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <Button
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/uploadProduct"
+                android:layout_below="@id/gridViewAdmin"
+                android:text="@string/uploadpic"/>
+            <Button
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/saveProduct"
+                android:layout_below="@id/uploadProduct"
+                android:text="@string/save"/>
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+    </ScrollView>
+
+</RelativeLayout>

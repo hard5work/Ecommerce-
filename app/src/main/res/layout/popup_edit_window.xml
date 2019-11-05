@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    >
+    <TextView
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:id="@+id/displayfullname"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:background="@drawable/ic_account_box_black_24dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:inputType="textPersonName"
+        android:id="@+id/editFullNameDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@+id/displayfullname"
+        android:layout_toRightOf="@id/displayfullname"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:hint="@string/frstname"
+        android:textColor="@android:color/black" />
+
+
+
+    <TextView
+
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:id="@+id/displayusername"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/editFullNameDisplay"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:background="@drawable/ic_account_box_black_24dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:inputType="textPersonName"
+        android:id="@+id/editNameDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/editFullNameDisplay"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@+id/displayusername"
+        android:layout_toRightOf="@+id/displayusername"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:hint="@string/midname"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:id="@+id/displayemail"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/editNameDisplay"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:background="@drawable/ic_account_box_black_24dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:inputType="textPersonName"
+        android:id="@+id/editEmailDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/editNameDisplay"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@+id/displayemail"
+        android:layout_toRightOf="@+id/displayemail"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:hint="@string/lastname"
+        android:textColor="@android:color/black" />
+
+    <TextView
+
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:id="@+id/displayuserAddress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/editEmailDisplay"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:background="@drawable/ic_place_black_24dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:inputType="textPostalAddress"
+        android:id="@+id/editAddressDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/editEmailDisplay"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@+id/displayuserAddress"
+        android:layout_toRightOf="@+id/displayuserAddress"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:hint="@string/enterAdd"
+        android:textColor="@android:color/black" />
+
+    <TextView
+
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:id="@+id/displaycontact"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/editAddressDisplay"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:background="@drawable/ic_phone_black_24dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:inputType="number"
+        android:id="@+id/editContactDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/editAddressDisplay"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@id/displaycontact"
+        android:layout_toRightOf="@+id/displaycontact"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:hint="@string/enterContact"
+        android:textColor="@android:color/black" />
+    <Button
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:id="@+id/saveDetails"
+        android:background="@drawable/effect_new"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/editContactDisplay"/>
+
+</RelativeLayout>

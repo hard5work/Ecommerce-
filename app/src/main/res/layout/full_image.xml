@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/fToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/fullimageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Header Relative LAYOUT-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        app:cardCornerRadius="20dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <android.support.v4.view.ViewPager
+                                android:padding="3dp"
+                                android:id="@+id/fullimageViewpager"
+                                android:layout_width="match_parent"
+                                android:layout_height="190dp">
+
+                            </android.support.v4.view.ViewPager>
+
+                            <LinearLayout
+                                android:id="@+id/sldierdot"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/fullimageViewpager"
+                                android:layout_margin="2dp"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:orientation="horizontal">
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+                </RelativeLayout>
+
+                <!--Footer Relative LAYOUT-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+
+                    <TextView
+                        android:id="@+id/favorite"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_favorite_black_24dp"
+                        android:padding="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingRight="10dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/clickfav"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_favorite_border_black_24dp"
+                        android:padding="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingRight="10dp"
+                        android:visibility="visible" />
+
+                    <!--   <ImageView
+                           android:contentDescription="@string/category"
+                           android:src="@drawable/ma"
+                           android:id="@+id/full_image_view"
+                           android:layout_width="match_parent"
+                           android:layout_height="180dp" />-->
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="210dp"
+
+
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="7dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+
+                                android:id="@+id/tvTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:padding="5dp"
+                                android:text="@string/imageName"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:padding="5dp"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@id/tvTitle"
+                                android:layout_toStartOf="@id/colorSPinner"
+                                android:layout_toLeftOf="@+id/colorSPinner"
+                                android:background="@drawable/ic_colorpicker_24dp" />
+
+                            <Spinner
+                                android:id="@+id/colorSPinner"
+                                android:layout_width="200dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@id/tvTitle"
+                                android:layout_centerHorizontal="true">
+
+                            </Spinner>
+
+                            <TextView
+                                android:id="@+id/sizes"
+                                android:layout_width="50dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@id/colorSPinner"
+                                android:layout_toLeftOf="@+id/colorSPinner"
+                                android:layout_toStartOf="@id/colorSPinner"
+                                android:gravity="center"
+                                android:text="@string/size" />
+
+                            <Spinner
+                                android:id="@+id/sizeSpinner"
+                                android:layout_width="200dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@id/colorSPinner"
+                                android:layout_centerHorizontal="true">
+
+                            </Spinner>
+
+                            <TextView
+                                android:layout_width="50dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@id/sizeSpinner"
+                                android:layout_toStartOf="@id/priceamount"
+                                android:layout_toLeftOf="@+id/priceamount"
+                                android:gravity="center"
+                                android:text="@string/price" />
+
+                            <TextView
+                                android:id="@+id/priceamount"
+                                android:layout_width="200dp"
+                                android:layout_height="40dp"
+                                android:layout_below="@id/sizeSpinner"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                android:text="@string/price"
+                                android:textColor="@color/black" />
+
+
+                        </RelativeLayout>
+
+                    </android.support.v7.widget.CardView>
+
+
+                    <Button
+                        android:id="@+id/fulladdtocart"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_add_shopping_cart_black_24dp"
+                        android:visibility="visible" />
+
+                    <Button
+                        android:id="@+id/fulladdedtocart"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_shopping_cart_blacke_24dp"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "/home/anish/Androidapp/Ecommerce/app/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/home/anish/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/anish/Androidapp/Ecommerce/app/.externalNativeBuild/cmake/debug/x86 --target clean"
+  ],
+  "libraries": {
+    "native-lib-Debug-x86": {
+      "artifactName": "native-lib",
+      "buildCommand": "/home/anish/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/anish/Androidapp/Ecommerce/app/.externalNativeBuild/cmake/debug/x86 --target native-lib",
+      "abi": "x86",
+      "output": "/home/anish/Androidapp/Ecommerce/app/build/intermediates/cmake/debug/obj/x86/libnative-lib.so"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.CardView
+                android:layout_margin="7dp"
+                android:padding="4dp"
+                app:cardCornerRadius="9dp"
+                app:cardElevation="9dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:id="@+id/selectID"
+                        android:text="@string/selectID"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp" />
+                    <Spinner
+                        android:layout_margin="5dp"
+                        android:id="@+id/spinnergetID"
+                        android:layout_toEndOf="@id/selectID"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp">
+                    </Spinner>
+
+
+
+                    <Button
+                        android:background="@drawable/edit_text_background"
+                        android:text="@string/cancel"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_below="@+id/selectID"
+                        android:layout_margin="5dp"
+                        android:id="@+id/cancelIMAGES"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp" />
+
+                    <Button
+                        android:layout_toEndOf="@+id/cancelIMAGES"
+                        android:id="@+id/selectIMAGES"
+                        android:layout_margin="5dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:gravity="center"
+                        android:layout_below="@+id/selectID"
+                        android:text="@string/selectImage"
+                        android:background="@drawable/edit_text_background"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp" />
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/imageViewIMAGES"
+                        android:contentDescription="@string/imageName"
+                        android:layout_margin="5dp"
+                        android:layout_below="@id/selectIMAGES"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp" />
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_below="@id/imageViewIMAGES"
+                        android:hint="@string/imageName"
+                        android:layout_margin="5dp"
+                        android:id="@+id/imageNAME"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:visibility="gone"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/edit_text_background"
+                        android:text="@string/uploadpic"
+                        android:layout_below="@id/imageNAME"
+                        android:id="@+id/uploadIMAGES"
+                        android:layout_width="140dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_height="40dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

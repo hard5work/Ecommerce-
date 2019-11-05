@@ -1,0 +1,38 @@
+
+{
+	"buildFiles" : [ "/home/anish/Androidapp/Ecommerce/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"/home/anish/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/anish/Androidapp/Ecommerce/app/.externalNativeBuild/cmake/debug/x86 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"native-lib-Debug-x86" : 
+		{
+			"abi" : "x86",
+			"artifactName" : "native-lib",
+			"buildCommand" : "/home/anish/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/anish/Androidapp/Ecommerce/app/.externalNativeBuild/cmake/debug/x86 --target native-lib",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=i686-none-linux-android19 --gcc-toolchain=/home/anish/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64 --sysroot=/home/anish/Android/Sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -isystem /home/anish/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /home/anish/Android/Sdk/ndk-bundle/sources/android/support/include -isystem /home/anish/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /home/anish/Android/Sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11  -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "/home/anish/Androidapp/Ecommerce/app/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "/home/anish/Androidapp/Ecommerce/app/.externalNativeBuild/cmake/debug/x86"
+				}
+			],
+			"output" : "/home/anish/Androidapp/Ecommerce/app/build/intermediates/cmake/debug/obj/x86/libnative-lib.so",
+			"toolchain" : "768449041182470788"
+		}
+	},
+	"toolchains" : 
+	{
+		"768449041182470788" : 
+		{
+			"cCompilerExecutable" : "/home/anish/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/home/anish/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+		}
+	}
+}

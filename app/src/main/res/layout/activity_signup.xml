@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:id="@+id/signupRelative0">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/colorPrimary">
+
+                <ImageView
+                    android:id="@+id/userImage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_centerHorizontal="true"
+                    android:contentDescription="@string/imageName"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/signupRelative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/ubtnupload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="64dp"
+                    android:layout_marginRight="64dp"
+                    android:layout_marginBottom="-160dp"
+                    android:layout_marginTop="120dp"
+                    android:background="@color/colorPrimary"
+                    android:src="@drawable/ic_photo_camera_black_24dp"
+                    app:elevation="5dp" />
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="160dp"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardPreventCornerOverlap="false"
+                    card_view:cardUseCompatPadding="false">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:padding="10dp">
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/errorText7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:padding="2dp">
+
+                            <EditText
+
+                                android:id="@+id/uenterfirstname"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_margin="2dp"
+                                android:hint="@string/frstname"
+                                android:inputType="textPersonName"
+                                android:padding="2dp" />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/errorText8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/errorText7"
+                            android:layout_margin="2dp"
+                            android:padding="2dp">
+
+                            <EditText
+                                android:id="@+id/uentermidname"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_margin="2dp"
+                                android:hint="@string/midname"
+                                android:inputType="textPersonName"
+                                android:padding="2dp" />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/errorText9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/errorText8"
+                            android:layout_margin="2dp"
+                            android:padding="2dp">
+
+                            <EditText
+                                android:id="@+id/uenterlastname"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_margin="2dp"
+                                android:hint="@string/lastname"
+                                android:inputType="textPersonName"
+                                android:padding="2dp" />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/errorText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/errorText9"
+                            android:layout_margin="2dp"
+                            android:padding="2dp">
+
+                            <EditText
+                                android:id="@+id/uenterUsername"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_margin="2dp"
+                                android:hint="@string/enterUser"
+                                android:inputType="text"
+                                android:padding="2dp" />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/errorText1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/errorText"
+                            android:layout_margin="2dp"
+                            android:padding="2dp">
+
+                            <EditText
+                                android:id="@+id/uenterEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_margin="2dp"
+                                android:hint="@string/enterEmail"
+                                android:inputType="textEmailAddress"
+                                android:padding="2dp" />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/errorText2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/errorText1"
+                            android:layout_margin="2dp"
+                            android:padding="2dp">
+
+                            <EditText
+
+                                android:id="@+id/uenterPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_margin="2dp"
+                                android:hint="@string/enterPass"
+                                android:inputType="textPassword"
+                                android:padding="2dp" />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/errorText3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/errorText2"
+                            android:layout_margin="2dp"
+                            android:padding="2dp">
+
+                            <EditText
+                                android:id="@+id/uenterAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_margin="2dp"
+                                android:hint="@string/enterAdd"
+                                android:inputType="textPostalAddress"
+                                android:padding="2dp" />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/errorText4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/errorText3"
+                            android:layout_margin="2dp"
+                            android:padding="2dp">
+
+                            <EditText
+                                android:id="@+id/uenterContact"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_margin="2dp"
+                                android:hint="@string/enterContact"
+                                android:inputType="number"
+                                android:padding="2dp" />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/ubtnSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="bottom|end"
+        android:src="@drawable/ic_check_black_24dp" />
+</RelativeLayout>

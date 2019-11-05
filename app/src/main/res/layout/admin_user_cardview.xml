@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/userCARD"
+
+        android:layout_margin="5dp"
+        android:padding="3dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:padding="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/userID"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@string/number" />
+
+            <ImageView
+                android:id="@+id/userIMAGE"
+                android:contentDescription="@string/imageName"
+                android:padding="2dp"
+                android:layout_below="@+id/userID"
+                android:src="@drawable/gradient1"
+                android:layout_width="150dp"
+                android:layout_height="120dp" />
+
+            <TextView
+                android:overScrollMode="ifContentScrolls"
+                android:scrollHorizontally="true"
+                android:drawableStart="@drawable/ic_account_circle_black_24dp"
+                android:drawablePadding="8dp"
+                android:padding="2dp"
+                android:text="@string/username"
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_below="@id/userID"
+                android:id="@+id/userFULLNAME"
+                android:layout_toEndOf="@id/userIMAGE"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:overScrollMode="ifContentScrolls"
+                android:scrollHorizontally="true"
+                android:padding="2dp"
+                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:drawablePadding="8dp"
+                android:id="@+id/userEMAIL"
+                android:layout_below="@id/userFULLNAME"
+                android:text="@string/enterEmail"
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:layout_toEndOf="@id/userIMAGE"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:drawablePadding="8dp"
+                android:layout_below="@id/userEMAIL"
+                android:layout_toEndOf="@+id/userIMAGE"
+                android:padding="2dp"
+                android:drawableStart="@drawable/ic_phone_black_24dp"
+                android:text="@string/contact"
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:id="@+id/userCONTACT"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
