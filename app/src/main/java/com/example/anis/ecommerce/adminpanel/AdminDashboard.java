@@ -1,30 +1,23 @@
 package com.example.anis.ecommerce.adminpanel;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.anis.ecommerce.R;
 
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
-import java.util.List;
-
 public class AdminDashboard extends AppCompatActivity {
 
-    android.support.v4.app.FragmentTransaction ft;
+    FragmentTransaction ft;
     private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

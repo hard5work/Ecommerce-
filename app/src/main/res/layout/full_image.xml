@@ -7,14 +7,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/fToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize">
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
         android:id="@+id/fullimageview"
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp">
 
-                    <android.support.v7.widget.CardView
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -47,13 +47,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <android.support.v4.view.ViewPager
+                            <androidx.viewpager.widget.ViewPager
                                 android:padding="3dp"
                                 android:id="@+id/fullimageViewpager"
                                 android:layout_width="match_parent"
                                 android:layout_height="190dp">
 
-                            </android.support.v4.view.ViewPager>
+                            </androidx.viewpager.widget.ViewPager>
 
                             <LinearLayout
                                 android:id="@+id/sldierdot"
@@ -66,7 +66,7 @@
 
                             </LinearLayout>
                         </RelativeLayout>
-                    </android.support.v7.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
                 </RelativeLayout>
 
@@ -119,7 +119,7 @@
                            android:layout_width="match_parent"
                            android:layout_height="180dp" />-->
 
-                    <android.support.v7.widget.CardView
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="210dp"
@@ -200,7 +200,7 @@
 
                         </RelativeLayout>
 
-                    </android.support.v7.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
 
                     <Button

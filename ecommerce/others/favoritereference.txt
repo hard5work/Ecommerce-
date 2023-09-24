@@ -1,0 +1,591 @@
+public class SharedPreference {
+ 
+    public static final String PREFS_NAME = "PRODUCT_APP";
+    public static final String FAVORITES = "Product_Favorite";
+    
+    public SharedPreference() {
+        super();
+    }
+ 
+    // This four methods are used for maintaining favorites.
+    public void saveFavorites(Context context, List<Product> favorites) {
+        SharedPreferences settings;
+        Editor editor;
+ 
+        settings = context.getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+        editor = settings.edit();
+ 
+        Gson gson = new Gson();
+        String jsonFavorites = gson.toJson(favorites);
+ 
+        editor.putString(FAVORITES, jsonFavorites);
+ 
+        editor.commit();
+    }
+ 
+    public void addFavorite(Context context, Product product) {
+        List<Product> favorites = getFavorites(context);
+        if (favorites == null)
+            favorites = new ArrayList<Product>();
+        favorites.add(product);
+        saveFavorites(context, favorites);
+    }
+ 
+    public void removeFavorite(Context context, Product product) {
+        ArrayList<Product> favorites = getFavorites(context);
+        if (favorites != null) {
+            favorites.remove(product);
+            saveFavorites(context, favorites);
+        }
+    }
+ 
+    public ArrayList<Product> getFavorites(Context context) {
+        SharedPreferences settings;
+        List<Product> favorites;
+ 
+        settings = context.getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+ 
+        if (settings.contains(FAVORITES)) {
+            String jsonFavorites = settings.getString(FAVORITES, null);
+            Gson gson = new Gson();
+            Product[] favoriteItems = gson.fromJson(jsonFavorites,
+                    Product[].class);
+ 
+            favorites = Arrays.asList(favoriteItems);
+            favorites = new ArrayList<Product>(favorites);
+        } else
+            return null;
+ 
+        return (ArrayList<Product>) favorites;
+    }
+}
+public class ProductListAdapter extends ArrayAdapter<Product> {
+ 
+    private Context context;
+    List<Product> products;
+    SharedPreference sharedPreference;
+ 
+    public ProductListAdapter(Context context, List<Product> products) {
+        super(context, R.layout.product_list_item, products);
+        this.context = context;
+        this.products = products;
+        sharedPreference = new SharedPreference();
+    }
+ 
+    private class ViewHolder {
+        TextView productNameTxt;
+        TextView productDescTxt;
+        TextView productPriceTxt;
+        ImageView favoriteImg;
+    }
+ 
+    @Override
+    public int getCount() {
+        return products.size();
+    }
+ 
+    @Override
+    public Product getItem(int position) {
+        return products.get(position);
+    }
+ 
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+ 
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder = null;
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context
+                    .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.product_list_item, null);
+            holder = new ViewHolder();
+            holder.productNameTxt = (TextView) convertView
+                    .findViewById(R.id.txt_pdt_name);
+            holder.productDescTxt = (TextView) convertView
+                    .findViewById(R.id.txt_pdt_desc);
+            holder.productPriceTxt = (TextView) convertView
+                    .findViewById(R.id.txt_pdt_price);
+            holder.favoriteImg = (ImageView) convertView
+                    .findViewById(R.id.imgbtn_favorite);
+            
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        Product product = (Product) getItem(position);
+        holder.productNameTxt.setText(product.getName());
+        holder.productDescTxt.setText(product.getDescription());
+        holder.productPriceTxt.setText(product.getPrice() + "");
+        
+        /*If a product exists in shared preferences then set heart_red drawable
+         * and set a tag*/
+        if (checkFavoriteItem(product)) {
+            holder.favoriteImg.setImageResource(R.drawable.heart_red);
+            holder.favoriteImg.setTag("red");
+        } else {
+            holder.favoriteImg.setImageResource(R.drawable.heart_grey);
+            holder.favoriteImg.setTag("grey");
+        }
+        
+        return convertView;
+    }
+    
+    /*Checks whether a particular product exists in SharedPreferences*/
+    public boolean checkFavoriteItem(Product checkProduct) {
+        boolean check = false;
+        List<Product> favorites = sharedPreference.getFavorites(context);
+        if (favorites != null) {
+            for (Product product : favorites) {
+                if (product.equals(checkProduct)) {
+                    check = true;
+                    break;
+                }
+            }
+        }
+        return check;
+    }
+ 
+    @Override
+    public void add(Product product) {
+        super.add(product);
+        products.add(product);
+        notifyDataSetChanged();
+    }
+ 
+    @Override
+    public void remove(Product product) {
+        super.remove(product);
+        products.remove(product);
+        notifyDataSetChanged();
+    }    
+}
+
+public class ProductListFragment extends Fragment implements
+        OnItemClickListener, OnItemLongClickListener {
+ 
+    public static final String ARG_ITEM_ID = "product_list";
+ 
+    Activity activity;
+    ListView productListView;
+    List<Product> products;
+    ProductListAdapter productListAdapter;
+ 
+    SharedPreference sharedPreference;
+ 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        activity = getActivity();
+        sharedPreference = new SharedPreference();
+    }
+ 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_product_list, container,
+                false);
+        findViewsById(view);
+ 
+        setProducts();
+ 
+        productListAdapter = new ProductListAdapter(activity, products);
+        productListView.setAdapter(productListAdapter);
+        productListView.setOnItemClickListener(this);
+        productListView.setOnItemLongClickListener(this);
+        return view;
+    }
+ 
+    private void setProducts() {
+ 
+        Product product1 = new Product(1, "Dell XPS", "Dell XPS Laptop", 60000);
+        Product product2 = new Product(2, "HP Pavilion G6-2014TX",
+                "HP Pavilion G6-2014TX Laptop", 50000);
+        Product product3 = new Product(3, "ProBook HP 4540",
+                "ProBook HP 4540 Laptop", 45000);
+        Product product4 = new Product(4, "HP Envy 4-1025TX",
+                "HP Envy 4-1025TX Laptop", 46000);
+        Product product5 = new Product(5, "Dell Inspiron",
+                "Dell Inspiron Laptop", 48000);
+        Product product6 = new Product(6, "Dell Vostro", "Dell Vostro Laptop",
+                50000);
+        Product product7 = new Product(7, "IdeaPad Z Series",
+                "Lenovo IdeaPad Z Series Laptop", 40000);
+        Product product8 = new Product(8, "ThinkPad X Series",
+                "Lenovo ThinkPad X Series Laptop", 38000);
+        Product product9 = new Product(9, "VAIO S Series",
+                "Sony VAIO S Series Laptop", 39000);
+        Product product10 = new Product(10, "Series 5",
+                "Samsung Series 5 Laptop", 50000);
+ 
+        products = new ArrayList<Product>();
+        products.add(product1);
+        products.add(product2);
+        products.add(product3);
+        products.add(product4);
+        products.add(product5);
+        products.add(product6);
+        products.add(product7);
+        products.add(product8);
+        products.add(product9);
+        products.add(product10);
+    }
+ 
+    private void findViewsById(View view) {
+        productListView = (ListView) view.findViewById(R.id.list_product);
+    }
+ 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position,
+            long id) {
+        Product product = (Product) parent.getItemAtPosition(position);
+        Toast.makeText(activity, product.toString(), Toast.LENGTH_LONG).show();
+    }
+ 
+    @Override
+    public boolean onItemLongClick(AdapterView<?> arg0, View view,
+            int position, long arg3) {
+        ImageView button = (ImageView) view.findViewById(R.id.imgbtn_favorite);
+ 
+        String tag = button.getTag().toString();
+        if (tag.equalsIgnoreCase("grey")) {
+            sharedPreference.addFavorite(activity, products.get(position));
+            Toast.makeText(activity,
+                    activity.getResources().getString(R.string.add_favr),
+                    Toast.LENGTH_SHORT).show();
+ 
+            button.setTag("red");
+            button.setImageResource(R.drawable.heart_red);
+        } else {
+            sharedPreference.removeFavorite(activity, products.get(position));
+            button.setTag("grey");
+            button.setImageResource(R.drawable.heart_grey);
+            Toast.makeText(activity,
+                    activity.getResources().getString(R.string.remove_favr),
+                    Toast.LENGTH_SHORT).show();
+        }
+ 
+        return true;
+    }
+    
+    @Override
+    public void onResume() {
+        getActivity().setTitle(R.string.app_name);
+        getActivity().getActionBar().setTitle(R.string.app_name);
+        super.onResume();
+    }
+}
+public class FavoriteListFragment extends Fragment {
+ 
+    public static final String ARG_ITEM_ID = "favorite_list";
+ 
+    ListView favoriteList;
+    SharedPreference sharedPreference;
+    List<Product> favorites;
+ 
+    Activity activity;
+    ProductListAdapter productListAdapter;
+ 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        activity = getActivity();
+    }
+ 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_product_list, container,
+                false);
+        // Get favorite items from SharedPreferences.
+        sharedPreference = new SharedPreference();
+        favorites = sharedPreference.getFavorites(activity);
+ 
+        if (favorites == null) {
+            showAlert(getResources().getString(R.string.no_favorites_items),
+                    getResources().getString(R.string.no_favorites_msg));
+        } else {
+ 
+            if (favorites.size() == 0) {
+                showAlert(
+                        getResources().getString(R.string.no_favorites_items),
+                        getResources().getString(R.string.no_favorites_msg));
+            }
+ 
+            favoriteList = (ListView) view.findViewById(R.id.list_product);
+            if (favorites != null) {
+                productListAdapter = new ProductListAdapter(activity, favorites);
+                favoriteList.setAdapter(productListAdapter);
+ 
+                favoriteList.setOnItemClickListener(new OnItemClickListener() {
+ 
+                    public void onItemClick(AdapterView<?> parent, View arg1,
+                            int position, long arg3) {
+ 
+                    }
+                });
+ 
+                favoriteList
+                        .setOnItemLongClickListener(new OnItemLongClickListener() {
+ 
+                            @Override
+                            public boolean onItemLongClick(
+                                    AdapterView<?> parent, View view,
+                                    int position, long id) {
+ 
+                                ImageView button = (ImageView) view
+                                        .findViewById(R.id.imgbtn_favorite);
+ 
+                                String tag = button.getTag().toString();
+                                if (tag.equalsIgnoreCase("grey")) {
+                                    sharedPreference.addFavorite(activity,
+                                            favorites.get(position));
+                                    Toast.makeText(
+                                            activity,
+                                            activity.getResources().getString(
+                                                    R.string.add_favr),
+                                            Toast.LENGTH_SHORT).show();
+ 
+                                    button.setTag("red");
+                                    button.setImageResource(R.drawable.heart_red);
+                                } else {
+                                    sharedPreference.removeFavorite(activity,
+                                            favorites.get(position));
+                                    button.setTag("grey");
+                                    button.setImageResource(R.drawable.heart_grey);
+                                    productListAdapter.remove(favorites
+                                            .get(position));
+                                    Toast.makeText(
+                                            activity,
+                                            activity.getResources().getString(
+                                                    R.string.remove_favr),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                                return true;
+                            }
+                        });
+            }
+        }
+        return view;
+    }
+ 
+    public void showAlert(String title, String message) {
+        if (activity != null && !activity.isFinishing()) {
+            AlertDialog alertDialog = new AlertDialog.Builder(activity)
+                    .create();
+            alertDialog.setTitle(title);
+            alertDialog.setMessage(message);
+            alertDialog.setCancelable(false);
+ 
+            // setting OK Button
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                    new DialogInterface.OnClickListener() {
+ 
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            // activity.finish();
+                            getFragmentManager().popBackStackImmediate();
+                        }
+                    });
+            alertDialog.show();
+        }
+    }
+    
+    @Override
+    public void onResume() {
+        getActivity().setTitle(R.string.favorites);
+        getActivity().getActionBar().setTitle(R.string.favorites);
+        super.onResume();
+    }
+}
+public class MainActivity extends FragmentActivity {
+ 
+    private Fragment contentFragment;
+    ProductListFragment pdtListFragment;
+    FavoriteListFragment  favListFragment;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        
+        /*
+         * This is called when orientation is changed.
+         */
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey("content")) {
+                String content = savedInstanceState.getString("content");
+                if (content.equals(FavoriteListFragment.ARG_ITEM_ID)) {
+                    if (fragmentManager.findFragmentByTag(FavoriteListFragment.ARG_ITEM_ID) != null) {
+                        setFragmentTitle(R.string.favorites);
+                        contentFragment = fragmentManager
+                                .findFragmentByTag(FavoriteListFragment.ARG_ITEM_ID);
+                    }
+                }
+            }
+            if (fragmentManager.findFragmentByTag(ProductListFragment.ARG_ITEM_ID) != null) {
+                pdtListFragment = (ProductListFragment) fragmentManager
+                        .findFragmentByTag(ProductListFragment.ARG_ITEM_ID);
+                contentFragment = pdtListFragment;
+            }
+        } else {
+            pdtListFragment = new ProductListFragment();
+            setFragmentTitle(R.string.app_name);
+            switchContent(pdtListFragment, ProductListFragment.ARG_ITEM_ID);
+        }
+    }
+ 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        if (contentFragment instanceof FavoriteListFragment) {
+            outState.putString("content", FavoriteListFragment.ARG_ITEM_ID);
+        } else {
+            outState.putString("content", ProductListFragment.ARG_ITEM_ID);
+        }
+        super.onSaveInstanceState(outState);
+    }
+ 
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+ 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case R.id.menu_favorites:
+            setFragmentTitle(R.string.favorites);
+            favListFragment = new FavoriteListFragment();
+            switchContent(favListFragment, FavoriteListFragment.ARG_ITEM_ID);
+ 
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+    public void switchContent(Fragment fragment, String tag) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        while (fragmentManager.popBackStackImmediate());
+ 
+        if (fragment != null) {
+            FragmentTransaction transaction = fragmentManager
+                    .beginTransaction();
+            transaction.replace(R.id.content_frame, fragment, tag);
+            //Only FavoriteListFragment is added to the back stack.
+            if (!(fragment instanceof ProductListFragment)) {
+                transaction.addToBackStack(tag);
+            }
+            transaction.commit();
+            contentFragment = fragment;
+        }
+    }
+ 
+    protected void setFragmentTitle(int resourseId) {
+        setTitle(resourseId);
+        getActionBar().setTitle(resourseId);
+ 
+    }
+    
+    /*
+     * We call super.onBackPressed(); when the stack entry count is > 0. if it
+     * is instanceof ProductListFragment or if the stack entry count is == 0, then
+     * we finish the activity.
+     * In other words, from ProductListFragment on back press it quits the app.
+     */
+    @Override
+    public void onBackPressed() {
+        FragmentManager fm = getSupportFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            super.onBackPressed();
+        } else if (contentFragment instanceof ProductListFragment
+                || fm.getBackStackEntryCount() == 0) {
+            finish();
+        }
+    }
+}
+public class Product {
+ 
+    private int id;
+    private String name;
+    private String description;
+    private double price;
+ 
+    public Product() {
+        super();
+    }
+ 
+    public Product(int id, String name, String description, double price) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+    public int getId() {
+        return id;
+    }
+ 
+    public void setId(int id) {
+        this.id = id;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public void setName(String name) {
+        this.name = name;
+    }
+ 
+    public String getDescription() {
+        return description;
+    }
+ 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+ 
+    public double getPrice() {
+        return price;
+    }
+ 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+ 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + id;
+        return result;
+    }
+ 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Product other = (Product) obj;
+        if (id != other.id)
+            return false;
+        return true;
+    }
+ 
+    @Override
+    public String toString() {
+        return "Product [id=" + id + ", name=" + name + ", description="
+                + description + ", price=" + price + "]";
+    }    
+}

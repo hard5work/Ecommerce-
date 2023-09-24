@@ -1,17 +1,13 @@
 package com.example.anis.ecommerce.adapter;
 
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.icu.text.TimeZoneFormat;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +21,6 @@ import android.widget.Toast;
 
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -33,33 +28,21 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
 import com.example.anis.ecommerce.R;
-import com.example.anis.ecommerce.cart_list.CartActivity;
-import com.example.anis.ecommerce.category_stuff.MainActivity;
 import com.example.anis.ecommerce.image_view.FullImageActivity;
 import com.example.anis.ecommerce.login_stuff.LoginActivty;
 import com.example.anis.ecommerce.login_stuff.SessionManager;
-import com.example.anis.ecommerce.login_stuff.SignupActivity;
 import com.example.anis.ecommerce.login_stuff.VolleySingleton;
-import com.google.gson.Gson;
-import com.tapadoo.alerter.Alerter;
 
-import junit.framework.Test;
+//import junit.framework.Test;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.ScheduledExecutorService;
-
-import static java.security.AccessController.getContext;
 
 /**
  * RecyclerView.Adapter
@@ -92,7 +75,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.custom_row_item,null);
+        View view = inflater.inflate(R.layout.custom_row_item,parent ,false);
         mholder = new ProductViewHolder(view);
         return mholder;
     }

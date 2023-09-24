@@ -1,23 +1,27 @@
 package com.example.anis.ecommerce.login_stuff;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.provider.Settings;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -28,7 +32,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -37,15 +40,14 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.anis.ecommerce.adapter.InternetUrl;
 import com.example.anis.ecommerce.adminpanel.AdminDashboard;
-import com.example.anis.ecommerce.adminpanel.UploadMultipleImage;
 import com.example.anis.ecommerce.category_stuff.MainActivity;
 import com.example.anis.ecommerce.R;
-import com.tapadoo.alerter.Alert;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Objects;
@@ -66,12 +68,15 @@ public class LoginActivty extends AppCompatActivity {
     Animation bounce;
     CardView cardView;
     RelativeLayout cardRelative;
+    String deviceId,time,date;
+    String deviceName;
 
    RequestQueue requestQueue;
 
-    String lin = "loginstuff/login.php";
+    String lin = "loginstuff/login2.php";
 
 
+    @SuppressLint("HardwareIds")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,12 +95,32 @@ public class LoginActivty extends AppCompatActivity {
        // cardView.setAnimation(bounce);
         cardRelative.setAnimation(bounce);
 
+        deviceId = Settings.Secure.getString(getContentResolver(),Settings.Secure.ANDROID_ID);
+       // Toast.makeText(this, "device id" + deviceId, Toast.LENGTH_SHORT).show();
+        Log.e("device id", deviceId);
+        /*if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE},101);
+        }*/
+        try{
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa");
+            time = sdf.format(new Date());
+           // Toast.makeText(this, time, Toast.LENGTH_SHORT).show();
+            Log.e("time", time);
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/MM/dd");
+            date = sdf2.format(new Date());
+         //   Toast.makeText(this, date, Toast.LENGTH_SHORT).show();
+            Log.e("date", date);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
        // Toolbar toolbar = (Toolbar) findViewById(R.id.loginToolbar);
        /* setSupportActionBar(toolbar);
         if(getSupportActionBar()!= null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }*/
         sm = new SessionManager(LoginActivty.this);
+        sm.setDeviceID(deviceId);
 
        if(sm.isLoggedIn()){
            Intent i = new Intent(this, MainActivity.class);
@@ -172,6 +197,40 @@ public class LoginActivty extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 101:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                    deviceName = Build.DEVICE;
+                    Toast.makeText(this, "device name" + deviceName, Toast.LENGTH_SHORT).show();
+                    Log.e("device name", deviceName);
+                    new SessionManager(getApplicationContext()).setDevicename(deviceName);
+                }
+                else{
+                    Log.e("Not Granted", permissions[0]);
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        /*if (ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
+            return;
+        }
+        deviceName = Build.DEVICE;
+        new SessionManager(getApplicationContext()).setDevicename(deviceName);
+        Log.e("On Resume Device Name", deviceName);*/
+    }
+
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -273,6 +332,7 @@ public class LoginActivty extends AppCompatActivity {
                 pd.dismiss();
                 Snackbar snackbar=  Snackbar.make(findViewById(R.id.loginLinear),"No Internet Connection",Snackbar.LENGTH_LONG);
                 snackbar.show();
+                Log.e("Login Error", error.toString());
 
             }
         }){
@@ -281,6 +341,9 @@ public class LoginActivty extends AppCompatActivity {
                  params = new HashMap<>();
                 params.put("email",username);
                 params.put("password",password);
+                params.put("DEVICEID", deviceId);
+                params.put("time",time);
+                params.put("date",date);
                 return params;
             }
         };

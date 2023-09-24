@@ -1,10 +1,11 @@
 package com.example.anis.ecommerce.image_view;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -12,7 +13,7 @@ import android.widget.ImageView;
 import com.example.anis.ecommerce.R;
 import com.example.anis.ecommerce.category_stuff.MainActivity;
 
-public class SplashScreen extends Activity {
+public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

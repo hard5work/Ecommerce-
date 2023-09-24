@@ -6,7 +6,7 @@
         android:title="@string/cart"
         android:icon="@drawable/ic_shopping_cart_black_24dp"
         android:id="@+id/cart"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:actionLayout="@layout/cart_attach"
         android:visible="true"
         android:orderInCategory="0"
@@ -25,6 +25,13 @@
         android:id="@+id/action_signin"
         app:showAsAction="never"
         android:icon="@drawable/ic_action_setting"
+        />
+    <item
+        android:title="@string/changeServer"
+        android:orderInCategory="100"
+        android:id="@+id/changeServer"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/router"
         />
 
 </menu>

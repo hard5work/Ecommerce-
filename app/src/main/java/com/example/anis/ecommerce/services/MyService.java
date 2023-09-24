@@ -4,8 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -19,7 +19,6 @@ import com.android.volley.toolbox.Volley;
 import com.example.anis.ecommerce.adapter.FavoriteClassAdapter;
 import com.example.anis.ecommerce.adapter.InternetUrl;
 import com.example.anis.ecommerce.adapter.Product;
-import com.example.anis.ecommerce.image_view.FavoritesProduct;
 import com.example.anis.ecommerce.login_stuff.SessionManager;
 
 import org.json.JSONArray;
@@ -49,7 +48,7 @@ public class MyService extends Service {
             public void run() {
                 while(true){
                     try{
-                        Thread.sleep(10000);
+                        Thread.sleep(5000);
                         Log.i("services-log","fetching Staus");
                         imageLoads();
 

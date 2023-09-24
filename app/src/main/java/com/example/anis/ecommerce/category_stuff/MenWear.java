@@ -1,21 +1,19 @@
 package com.example.anis.ecommerce.category_stuff;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
+import androidx.annotation.RequiresApi;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -32,8 +29,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.anis.ecommerce.adapter.InternetUrl;
-import com.example.anis.ecommerce.cart_list.CartActivity;
-import com.example.anis.ecommerce.image_view.FavoritesProduct;
 import com.example.anis.ecommerce.image_view.MenNewSee;
 import com.example.anis.ecommerce.adapter.Product;
 import com.example.anis.ecommerce.adapter.ProductAdapter;
@@ -41,23 +36,10 @@ import com.example.anis.ecommerce.R;
 import com.example.anis.ecommerce.login_stuff.SessionManager;
 import com.tapadoo.alerter.Alerter;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -296,8 +278,12 @@ public class MenWear extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Snackbar snackbar=  Snackbar.make(Objects.requireNonNull(getView()),"No Internet Connection",Snackbar.LENGTH_LONG);
-                snackbar.show();
+                try {
+                    Snackbar snackbar = Snackbar.make(requireView(), "No Internet Connection", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }catch (Exception e){
+                    Log.e("error", e.toString());
+                }
             }
         });
         requestQueue.add(stringRequest);

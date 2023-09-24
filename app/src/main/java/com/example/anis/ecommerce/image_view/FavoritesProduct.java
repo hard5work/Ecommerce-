@@ -1,20 +1,17 @@
 package com.example.anis.ecommerce.image_view;
 
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,7 +25,6 @@ import com.example.anis.ecommerce.R;
 import com.example.anis.ecommerce.adapter.FavoriteClassAdapter;
 import com.example.anis.ecommerce.adapter.InternetUrl;
 import com.example.anis.ecommerce.adapter.Product;
-import com.example.anis.ecommerce.adapter.ProductAdapter;
 import com.example.anis.ecommerce.login_stuff.SessionManager;
 import com.example.anis.ecommerce.services.MyService;
 

@@ -1,0 +1,298 @@
+<HorizontalScrollView
+    android:id="@+id/checkout_hsv_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:layout_constraintLeft_creator="1"
+    tools:layout_constraintRight_creator="1">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/checkout_steps_view_height"
+        android:layout_marginBottom="@dimen/checkout_steps_view_margin_bottom"
+        android:layout_marginTop="@dimen/checkout_steps_view_margin_top"
+        android:minWidth="@dimen/checkout_steps_view_minwidth">
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="@dimen/checkout_progressbar_width"
+            android:layout_height="@dimen/checkout_progressbar_height"
+            android:layout_marginLeft="@dimen/checkout_steps_side_margin"
+            android:layout_marginRight="@dimen/checkout_steps_side_margin"
+            android:progressDrawable="@drawable/custom_progress_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step1"
+            android:layout_width="@dimen/checkout_step_small_node_size"
+            android:layout_height="@dimen/checkout_step_small_node_size"
+            android:background="@drawable/bg_round_filled_white"
+            android:gravity="center"
+
+            android:text="@string/str_checkout_step1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/checkout_step_small_node_font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
+            app:layout_constraintRight_toLeftOf="@+id/progressBar2"
+            app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step1text"
+            android:layout_width="@dimen/checkout_step_name_width"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="@string/str_checkout_step_name1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/checkout_step_small_node_font_size"
+            app:layout_constraintLeft_toLeftOf="@+id/fcm_tv_step1"
+            app:layout_constraintRight_toRightOf="@+id/fcm_tv_step1"
+            app:layout_constraintTop_toBottomOf="@+id/fcm_tv_step1" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step2"
+            android:layout_width="@dimen/checkout_step_big_node_size"
+            android:layout_height="@dimen/checkout_step_big_node_size"
+            android:layout_marginLeft="@dimen/checkout_step_two_node_margin"
+            android:layout_marginStart="@dimen/checkout_step_two_node_margin"
+            android:background="@drawable/bg_round_filled_white"
+            android:gravity="center"
+            android:text="@string/str_checkout_step2"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/checkout_step_small_node_font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
+            app:layout_constraintLeft_toRightOf="@+id/fcm_tv_step1"
+            app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step2text"
+            android:layout_width="@dimen/checkout_step_name_width"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="@string/str_checkout_step_name2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/checkout_step_big_node_font_size"
+            app:layout_constraintLeft_toLeftOf="@+id/fcm_tv_step2"
+            app:layout_constraintRight_toRightOf="@+id/fcm_tv_step2"
+            app:layout_constraintTop_toBottomOf="@+id/fcm_tv_step2" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step3"
+            android:layout_width="@dimen/checkout_step_small_node_size"
+            android:layout_height="@dimen/checkout_step_small_node_size"
+            android:layout_marginLeft="@dimen/checkout_step_two_node_margin"
+            android:layout_marginStart="@dimen/checkout_step_two_node_margin"
+            android:background="@drawable/bg_round_filled_white"
+            android:gravity="center"
+            android:text="@string/str_checkout_step3"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/checkout_step_small_node_font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
+            app:layout_constraintLeft_toRightOf="@+id/fcm_tv_step2"
+            app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step3text"
+            android:layout_width="@dimen/checkout_step_name_width"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="@string/str_checkout_step_name3"
+            android:textColor="@color/white"
+            android:textSize="@dimen/checkout_step_small_node_font_size"
+            app:layout_constraintLeft_toLeftOf="@+id/fcm_tv_step3"
+            app:layout_constraintRight_toRightOf="@+id/fcm_tv_step3"
+            app:layout_constraintTop_toBottomOf="@+id/fcm_tv_step3" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step4"
+            android:layout_width="@dimen/checkout_step_small_node_size"
+            android:layout_height="@dimen/checkout_step_small_node_size"
+            android:layout_marginLeft="@dimen/checkout_step_two_node_margin"
+            android:layout_marginStart="@dimen/checkout_step_two_node_margin"
+            android:background="@drawable/bg_round_filled_white"
+            android:gravity="center"
+            android:text="@string/str_checkout_step4"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/checkout_step_small_node_font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
+            app:layout_constraintLeft_toRightOf="@+id/fcm_tv_step3"
+            app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step4text"
+            android:layout_width="@dimen/checkout_step_name_width"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="@string/str_checkout_step_name4"
+            android:textColor="@color/white"
+            android:textSize="@dimen/checkout_step_small_node_font_size"
+            app:layout_constraintLeft_toLeftOf="@+id/fcm_tv_step4"
+            app:layout_constraintRight_toRightOf="@+id/fcm_tv_step4"
+            app:layout_constraintTop_toBottomOf="@+id/fcm_tv_step4" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step5"
+            android:layout_width="@dimen/checkout_step_small_node_size"
+            android:layout_height="@dimen/checkout_step_small_node_size"
+            android:layout_marginLeft="@dimen/checkout_step_two_node_margin"
+            android:layout_marginStart="@dimen/checkout_step_two_node_margin"
+            android:background="@drawable/bg_round_filled_white"
+            android:gravity="center"
+            android:text="@string/str_checkout_step5"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/checkout_step_small_node_font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
+            app:layout_constraintLeft_toRightOf="@+id/fcm_tv_step4"
+            app:layout_constraintTop_toTopOf="@+id/progressBar2" />
+
+        <TextView
+            android:id="@+id/fcm_tv_step5text"
+            android:layout_width="@dimen/checkout_step_name_width"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="@string/str_checkout_step_name5"
+            android:textColor="@color/white"
+            android:textSize="@dimen/checkout_step_small_node_font_size"
+            app:layout_constraintLeft_toLeftOf="@+id/fcm_tv_step5"
+            app:layout_constraintRight_toRightOf="@+id/fcm_tv_step5"
+            app:layout_constraintTop_toBottomOf="@+id/fcm_tv_step5" />
+    </android.support.constraint.ConstraintLayout>
+</HorizontalScrollView>
+
+
+        {
+            ider = userid.get(SessionManager.KEY_USERID);
+            String lint = "favlist/favoritelist.php";
+            requestQueue = Volley.newRequestQueue(Objects.<Context>requireNonNull(mCtx));
+            StringRequest stringRequest = new StringRequest(Request.Method.POST,InternetUrl.ServiceTYpe.URL + lint, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+
+                    try {
+                        JSONObject obj1 = new JSONObject(response);
+                        favv = obj1.getString("favorite");
+                        //   Toast.makeText(FullImageActivity.this, favv, Toast.LENGTH_SHORT).show();
+
+                        if (favv != "null") {
+                            holder.unfav.setVisibility(View.VISIBLE);
+                            holder.fav.setVisibility(View.GONE);
+
+                        }
+                        if (favv == "null"){
+                            holder.unfav.setVisibility(View.GONE);
+                            holder.fav.setVisibility(View.VISIBLE);
+
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.getMessage();
+                  /*  if(Alerter.isShowing()){
+                        Alerter.hide();
+                    }
+
+                    Alerter.create((Activity) mCtx)
+                            .setTitle("No favlist")
+                            .setText("favorite list not available")
+                            .setBackgroundColorRes(R.color.colorPrimaryDark)
+                            .setDuration(2000)
+                            .enableSwipeToDismiss()
+                            .enableIconPulse(true)
+                            .show();*/
+                }
+            }){
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("userid",ider);
+                    params.put("productid" , String.valueOf(product.getId()));
+                    return params;
+                }
+            };
+
+            requestQueue.add(stringRequest);
+
+
+        }
+
+
+        //check for product added to cart or no
+        {
+            ider = userid.get(SessionManager.KEY_USERID);
+            String lint = "cartliststuff/cartlist.php";
+            requestQueue = Volley.newRequestQueue(Objects.<Context>requireNonNull(mCtx));
+            StringRequest stringRequest = new StringRequest(Request.Method.POST,InternetUrl.ServiceTYpe.URL + lint, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+
+                    try {
+                        JSONObject obj1 = new JSONObject(response);
+                        cartid = obj1.getString("id");
+                        //   Toast.makeText(FullImageActivity.this, favv, Toast.LENGTH_SHORT).show();
+
+                        if (cartid != "null") {
+                            holder.btnaddedtocart.setVisibility(View.VISIBLE);
+                            holder.btnAddToCart.setVisibility(View.GONE);
+                        }
+
+                        if (cartid == "null"){
+                            holder.btnaddedtocart.setVisibility(View.GONE);
+                            holder.btnAddToCart.setVisibility(View.VISIBLE);
+
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.getMessage();
+                  /*  if(Alerter.isShowing()){
+                        Alerter.hide();
+                    }
+
+                    Alerter.create((Activity) mCtx)
+                            .setTitle("No favlist")
+                            .setText("favorite list not available")
+                            .setBackgroundColorRes(R.color.colorPrimaryDark)
+                            .setDuration(2000)
+                            .enableSwipeToDismiss()
+                            .enableIconPulse(true)
+                            .show();*/
+                }
+            }){
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("userid",ider);
+                    params.put("productid" , String.valueOf(product.getId()));
+                    return params;
+                }
+            };
+
+            requestQueue.add(stringRequest);
+
+
+        }
+
+
+

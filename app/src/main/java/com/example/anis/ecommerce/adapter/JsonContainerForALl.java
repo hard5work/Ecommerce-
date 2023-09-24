@@ -1,8 +1,8 @@
 package com.example.anis.ecommerce.adapter;
 
 import android.content.Context;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -12,7 +12,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.anis.ecommerce.cart_list.CartActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;

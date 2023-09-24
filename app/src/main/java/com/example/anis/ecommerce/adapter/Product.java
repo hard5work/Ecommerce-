@@ -11,7 +11,64 @@ public class Product {
     int image,productid;
     String allImage;
     String color, size;
-    String cart;
+    String cart,checkID;
+    String typeid,typename,categoryid,categoryname,status,notid;
+
+    public String getCheckID() {
+        return checkID;
+    }
+
+    public void setCheckID(String checkID) {
+        this.checkID = checkID;
+    }
+
+    public String getTypeid() {
+        return typeid;
+    }
+
+    public void setTypeid(String typeid) {
+        this.typeid = typeid;
+    }
+
+    public String getTypename() {
+        return typename;
+    }
+
+    public void setTypename(String typename) {
+        this.typename = typename;
+    }
+
+    public String getCategoryid() {
+        return categoryid;
+    }
+
+    public void setCategoryid(String categoryid) {
+        this.categoryid = categoryid;
+    }
+
+    public String getCategoryname() {
+        return categoryname;
+    }
+
+    public void setCategoryname(String categoryname) {
+        this.categoryname = categoryname;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getNotid() {
+        return notid;
+    }
+
+    public void setNotid(String notid) {
+        this.notid = notid;
+    }
 
     String username,contact, email , firstname, midname,lastname;
 

@@ -1,0 +1,3 @@
+F:/Android Kotlin/Ecommerce/app/.cxx/cmake/debug/x86_64/CMakeFiles/native-lib.dir
+F:/Android Kotlin/Ecommerce/app/.cxx/cmake/debug/x86_64/CMakeFiles/edit_cache.dir
+F:/Android Kotlin/Ecommerce/app/.cxx/cmake/debug/x86_64/CMakeFiles/rebuild_cache.dir
